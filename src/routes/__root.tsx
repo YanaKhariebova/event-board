@@ -1,17 +1,24 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
-import { ClerkProvider } from "@clerk/clerk-react";
+import { NavBar } from "../components/nav.bar";
+import { Footer } from "../components/footer";
 
 export const Route = createRootRoute({
-  component: RootComponent,
+  component: RootLayout,
 });
 
-function RootComponent() {
+function RootLayout() {
   return (
-    <ClerkProvider publishableKey={import.meta.env.VITE_CLERK_PUBLISHABLE_KEY}>
-      <div>
-        {/* общий layout (header, nav и тд) */}
+    <div className="min-h-screen flex flex-col tracking-wider">
+      {/* HEADER */}
+      <NavBar />
+
+      {/* MAIN */}
+      <main className="flex-1 p-4">
         <Outlet />
-      </div>
-    </ClerkProvider>
+      </main>
+
+      {/* FOOTER */}
+      <Footer />
+    </div>
   );
 }
