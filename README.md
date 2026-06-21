@@ -1,75 +1,62 @@
-# React + TypeScript + Vite
+# 📅 EventBoard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Eine kleine Event-Management-App, mit der man Events, Workshops und Meetups erstellen, anzeigen, bearbeiten, filtern und verwalten kann.
 
-Currently, two official plugins are available:
+## 📝 Beschreibung
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+EventBoard ist eine React-App zur Verwaltung von Events. Man kann Events erstellen, bearbeiten und löschen, Teilnehmer hinzufügen oder entfernen, Events suchen, filtern und sortieren, und alles in einer Kalenderübersicht nach Datum gruppiert anzeigen. Alle Daten werden zentral verwaltet und automatisch im Browser (localStorage) gespeichert, sodass sie nach einem Reload erhalten bleiben.
 
-## React Compiler
+## 🛠️ Verwendete Technologien
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- ⚛️ React
+- ⚡ Vite
+- 🔷 TypeScript
+- 🧭 TanStack Router (Filebased Routing)
+- 🎨 Tailwind CSS + daisyUI
+- 💾 localStorage
 
-Note: This will impact Vite dev & build performances.
+## 📦 Installationsanleitung
 
-## Expanding the ESLint configuration
+1. Repository klonen:
+   ```bash
+   git clone https://github.com/YanaKhariebova/event-board.git
+   cd event-board
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. Abhängigkeiten installieren:
+   ```bash
+   npm install
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Startbefehl
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Die App ist danach unter `http://localhost:5173` erreichbar.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Weitere Befehle
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build     # 🏗️ Produktions-Build erstellen
+npm run lint      # 🔍 Code mit ESLint prüfen
+npm run preview   # 👀 Produktions-Build lokal anschauen
 ```
+
+## ✨ Features
+
+- ✅ Events erstellen, bearbeiten und löschen (CRUD)
+- 🔁 Wiederverwendbares Formular (`EventForm`) für Erstellen und Bearbeiten
+- 💾 Zentrale Datenverwaltung mit automatischer Speicherung in localStorage
+- 🔎 Suche nach Titel, Filter nach Status und Kategorie, Sortierung nach Datum oder Titel
+- 📊 Dashboard mit Statistiken (Gesamtanzahl, Status-Verteilung, Teilnehmerzahl, nächstes Event, durchschnittliche Auslastung)
+- 👥 Teilnehmerverwaltung mit Validierung (Name, E-Mail) und Schutz vor Überbuchung
+- 📈 `OccupancyBar`-Komponente zur Anzeige der Event-Auslastung
+- 🗓️ Kalenderansicht mit Events gruppiert nach Datum, nur veröffentlichte Events, Markierung vergangener Termine
+- 🧭 Saubere UI-Zustände (keine Events, keine Suchtreffer, Event nicht gefunden, Event ausgebucht)
+- 🌗 Hell-/Dunkelmodus (Theme Toggle) mit Speicherung der Auswahl
+
+---
+
+🎓 Lernprojekt im Rahmen des DCI-Kurses
