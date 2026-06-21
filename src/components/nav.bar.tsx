@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import { useTheme } from "../hooks/useTheme";
 
 export function NavBar() {
+  const { toggleTheme, theme } = useTheme();
+
   return (
     <div className="navbar bg-base-200 shadow">
       <div className="flex-1">
@@ -36,23 +38,13 @@ export function NavBar() {
         >
           About
         </Link>
-
-        {/* AUTH */}
-        <div className="ml-4 flex items-center gap-2">
-          <SignedOut>
-            <Link to="/login" className="btn btn-sm btn-primary">
-              Login
-            </Link>
-
-            <Link to="/register" className="btn btn-sm btn-outline">
-              Register
-            </Link>
-          </SignedOut>
-
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-        </div>
+        <button
+          onClick={toggleTheme}
+          className="btn btn-ghost btn-circle text-2xl"
+          aria-label="Toggle theme"
+        >
+          {theme === "forest" ? "🌙" : "☀️"}
+        </button>
       </div>
     </div>
   );

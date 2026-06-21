@@ -1,13 +1,16 @@
 import { Link } from "@tanstack/react-router";
+import type { Event } from "../types/event";
+import { formatDate } from "../utils/format";
 
-export function EventCard({ event }) {
+// Props der Komponente: sagt TypeScript, dass von außen ein Objekt event vom Typ Event kommt
+export function EventCard({ event }: { event: Event }) {
   return (
-    <div className="card bg-base-100 shadow-xl mb-4">
+    <div className="card bg-base-200 shadow-xl mb-4">
       <div className="card-body">
         <h2 className="card-title">{event.title}</h2>
 
         <p className="text-sm opacity-70">
-          {event.date} • {event.time}
+          {formatDate(event.date)} • {event.time}
         </p>
 
         <p className="text-sm">📍 {event.location}</p>

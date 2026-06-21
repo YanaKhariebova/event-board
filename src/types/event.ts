@@ -26,3 +26,14 @@ export type Event = {
   attendees: Attendee[];
   createdAt: string;
 };
+
+export type EventFormValues = {
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+  category: EventCategory;
+  status: EventStatus;
+  maxAttendees: number;
+};
